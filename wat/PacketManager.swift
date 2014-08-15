@@ -37,8 +37,9 @@ class PacketManager: NSObject {
         println("Datalink Name: \(String.fromCString(pcap_datalink_val_to_name(pcap_datalink(descr)))!)")
         println("Datalink Description: \(String.fromCString(pcap_datalink_val_to_description(pcap_datalink(descr)))!)")
         
-        self.callbackManager.registerPacketCallbackWithDescriptor(descr, withBlock: {(packet: Packet!) -> Void in
-            println("Packet Size: \(packet.size)")
+        self.callbackManager.registerPacketCallbackWithDescriptor(descr, withBlock: {(packet: RadioTapPacket!) -> Void in
+            println("Packet Size: \(packet.rawData.length)")
+            println("RadioTapHeader Size: \(packet.radioTapHeaderSize)")
         })
     }
 

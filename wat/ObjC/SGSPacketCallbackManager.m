@@ -18,7 +18,8 @@ void processPacket(u_char *arg, const struct pcap_pkthdr* pkthdr, const u_char *
     NSData* packetData = [NSData dataWithBytes:packet length:pkthdr->len];
     pkthdr_t nonConstPkthdr = (pkthdr_t) pkthdr; // :notsureif:
     
-    Packet* packetModel = [[Packet alloc] initWithPcapHeader:nonConstPkthdr rawData:packetData];
+    // Assuming RadioTap packet header for now
+    RadioTapPacket* packetModel = [[RadioTapPacket alloc] initWithPcapHeader:nonConstPkthdr rawData:packetData];
     
     if (gCallback) {
         gCallback(packetModel);

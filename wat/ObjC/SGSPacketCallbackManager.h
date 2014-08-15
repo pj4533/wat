@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <pcap/pcap.h>
 
-@class Packet;
-typedef void (^PacketCallback)(Packet* packet);
+@class RadioTapPacket;
+typedef void (^PacketCallback)(RadioTapPacket* packet);
 
 @interface SGSPacketCallbackManager : NSObject
 

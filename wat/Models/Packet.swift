@@ -9,12 +9,16 @@
 import Cocoa
 
 class Packet: NSObject {
-    let size = Int()
     let pcapHeader = pkthdr_t()
+    let rawData = NSData()
     
     init(pcapHeader: pkthdr_t, rawData: NSData) {
-        self.size = rawData.length
+        self.rawData = rawData
         self.pcapHeader = pcapHeader
     }
 
+    func read<T>(byteLocation: Int) -> T {
+        let bytes = self.rawData.subdataWithRange(NSMakeRange(byteLocation, sizeof(T))).bytes
+        return UnsafePointer<T>(bytes).memory
+    }
 }
