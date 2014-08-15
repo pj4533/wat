@@ -9,9 +9,10 @@
 import Cocoa
 
 class Packet: NSObject {
-
+    let size = Int()
+    
     init(rawData: NSData) {
-        
+        self.size = rawData.length
     }
 
 }

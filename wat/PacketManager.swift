@@ -38,10 +38,9 @@ class PacketManager: NSObject {
         println("Datalink Description: \(String.fromCString(pcap_datalink_val_to_description(pcap_datalink(descr)))!)")
         
         self.callbackManager.registerPacketCallbackWithDescriptor(descr, withBlock: {
-            (pkthdr: UnsafePointer<pcap_pkthdr>, packet: UnsafePointer<u_char>) -> Void in
+            (pkthdr: UnsafePointer<pcap_pkthdr>, packet: Packet!) -> Void in
             
-            println("Got A Packet")
-            
+            println("Packet Size: \(packet.size)")
         })
     }
 

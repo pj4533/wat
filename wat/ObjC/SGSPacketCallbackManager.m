@@ -7,14 +7,20 @@
 //
 
 #import "SGSPacketCallbackManager.h"
+#import "wat-Swift.h"
 
 PacketCallback gCallback = nil;
 
 @implementation SGSPacketCallbackManager
 
 void processPacket(u_char *arg, const struct pcap_pkthdr* pkthdr, const u_char * packet){
+    
+    NSData* packetData = [NSData dataWithBytes:packet length:pkthdr->len];
+    
+    Packet* packetModel = [[Packet alloc] initWithRawData:packetData];
+    
     if (gCallback) {
-        gCallback(pkthdr, packet);
+        gCallback(pkthdr, packetModel);
     }
 }
 

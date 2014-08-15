@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <pcap/pcap.h>
 
-typedef void (^PacketCallback)(const struct pcap_pkthdr* pkthdr, const u_char * packet);
+@class Packet;
+typedef void (^PacketCallback)(const struct pcap_pkthdr* pkthdr, Packet* packet);
 
 @interface SGSPacketCallbackManager : NSObject
 
