@@ -10,9 +10,11 @@ import Cocoa
 
 class Packet: NSObject {
     let size = Int()
+    let pcapHeader = pkthdr_t()
     
-    init(rawData: NSData) {
+    init(pcapHeader: pkthdr_t, rawData: NSData) {
         self.size = rawData.length
+        self.pcapHeader = pcapHeader
     }
 
 }

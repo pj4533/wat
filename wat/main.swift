@@ -8,6 +8,4 @@
 
 import Foundation
 
-
-let packetManager = PacketManager(deviceName: "en0")
-packetManager.capture()
+PacketManager(deviceName: "en0").capture()

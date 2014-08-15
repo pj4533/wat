@@ -16,11 +16,12 @@ PacketCallback gCallback = nil;
 void processPacket(u_char *arg, const struct pcap_pkthdr* pkthdr, const u_char * packet){
     
     NSData* packetData = [NSData dataWithBytes:packet length:pkthdr->len];
+    pkthdr_t nonConstPkthdr = (pkthdr_t) pkthdr; // :notsureif:
     
-    Packet* packetModel = [[Packet alloc] initWithRawData:packetData];
+    Packet* packetModel = [[Packet alloc] initWithPcapHeader:nonConstPkthdr rawData:packetData];
     
     if (gCallback) {
-        gCallback(pkthdr, packetModel);
+        gCallback(packetModel);
     }
 }
 
