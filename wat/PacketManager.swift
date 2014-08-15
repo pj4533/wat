@@ -21,6 +21,26 @@ class PacketManager: NSObject {
         super.init()
     }
     
+//    func stringIfMeWithFrame(frame: FrameWithAddresses?, stringSoFar: String) -> String {
+//        String outputString = String(stringSoFar)
+//        
+//        if  frame?.destAddr != nil {
+//            outputString += " DEST: \(frame!.destAddrString!)"
+//            if (packet.managementFrame?.destAddrString! == "e4:98:d6:3:90:e4") {
+//                showOutput = true
+//            }
+//        }
+//        
+//        if  (packet.managementFrame?.sourceAddr != nil) {
+//            outputString += " SOURCE: \(packet.managementFrame!.sourceAddrString!)"
+//            if (packet.managementFrame?.sourceAddrString! == "e4:98:d6:3:90:e4") {
+//                showOutput = true
+//            }
+//        }
+//
+//        return
+//    }
+    
     func capture() {
         var error: UnsafeMutablePointer<CChar>
         error = nil
@@ -38,20 +58,48 @@ class PacketManager: NSObject {
         println("Datalink Description: \(String.fromCString(pcap_datalink_val_to_description(pcap_datalink(descr)))!)")
         
         self.callbackManager.registerPacketCallbackWithDescriptor(descr, withBlock: {(packet: RadioTapPacket!) -> Void in
-            if packet.frameControlType == RadioTapPacket.FrameControlType.Management {
-                
-                var outputString = "(\(packet.frameControlType.simpleDescription())) Size: \(packet.rawData.length)"
-                
-                if  packet.frame.destAddr != nil {
-                    outputString += " DEST: \(packet.frame.destAddrString!)"
-                }
+            var outputString = "(\(packet.frameControl!.frameControlType.simpleDescription()))"
+            outputString += " \(packet.frameControl!.frameControlSubType.simpleDescription())"
+            outputString += " Size: \(packet.rawData.length)"
 
-                if  (packet.frame.sourceAddr != nil) {
-                    outputString += " SOURCE: \(packet.frame.sourceAddrString!)"
+            var showOutput = false
+            if packet.frameControl?.frameControlType == FrameControl.FrameControlType.Management {
+                if packet.frameControl?.frameControlSubType == FrameControl.FrameControlSubType.Authentication {
+
+                    if  packet.managementFrame?.destAddr != nil {
+                        outputString += " DEST: \(packet.managementFrame!.destAddrString!)"
+                        if (packet.managementFrame?.destAddrString! == "e4:98:d6:3:90:e4") {
+                            showOutput = true
+                        }
+                    }
+
+                    if  (packet.managementFrame?.sourceAddr != nil) {
+                        outputString += " SOURCE: \(packet.managementFrame!.sourceAddrString!)"
+                        if (packet.managementFrame?.sourceAddrString! == "e4:98:d6:3:90:e4") {
+                            showOutput = true
+                        }
+                    }
+                    
+                }
+            } else if packet.frameControl?.frameControlType == FrameControl.FrameControlType.Data {
+
+                if  packet.dataFrame?.destAddr != nil {
+                    outputString += " DEST: \(packet.dataFrame!.destAddrString!)"
+                    if (packet.dataFrame?.destAddrString! == "e4:98:d6:3:90:e4") {
+                        showOutput = true
+                    }
                 }
                 
+                if  (packet.dataFrame?.sourceAddr != nil) {
+                    outputString += " SOURCE: \(packet.dataFrame!.sourceAddrString!)"
+                    if (packet.dataFrame?.sourceAddrString! == "e4:98:d6:3:90:e4") {
+                        showOutput = true
+                    }
+                }
+                
+            }
+            if showOutput {
                 println(outputString)
-
             }
         })
     }

@@ -9,53 +9,24 @@
 import Cocoa
 
 class RadioTapPacket: Packet {
-    let radioTapHeaderSize: Int
-    let frame: ManagementFrame
-    
-    enum FrameControlType {
-        case Management, Control, Data, Reserved, Unknown
-        func simpleDescription() -> String {
-            switch self {
-            case .Management:
-                return "MGMT"
-            case .Control:
-                return "CTRL"
-            case .Data:
-                return "DATA"
-            case .Reserved:
-                return "Reserved"
-            case .Unknown:
-                return "Unknown"
-            }
-        }
-    }
-    
-    let frameControlType: FrameControlType
+    let radioTapHeaderSize: Int?
+    let managementFrame: ManagementFrame?
+    let dataFrame: DataFrame?
+    let frameControl: FrameControl?
 
     override init(pcapHeader: pkthdr_t, rawData: NSData) {
-        self.radioTapHeaderSize = 0
-        self.frameControlType = .Unknown
-        self.frame = ManagementFrame(rawData: rawData)
         super.init(pcapHeader: pcapHeader, rawData: rawData)
 
         self.radioTapHeaderSize = Int(self.read(2) as Int8)
-        var fc = self.read(self.radioTapHeaderSize) as Int16
+        var frameData = self.rawData.subdataWithRange(NSMakeRange(self.radioTapHeaderSize!, self.rawData.length - self.radioTapHeaderSize!))
+
+        self.frameControl = FrameControl(rawData: frameData)
         
-        var frameData = self.rawData.subdataWithRange(NSMakeRange(self.radioTapHeaderSize, self.rawData.length - self.radioTapHeaderSize))
-                
-        switch (((fc) >> 2) & 0x3) {
-        case 0x0:
-            self.frameControlType = .Management
-            self.frame = ManagementFrame(rawData: frameData)
-        case 0x1:
-            self.frameControlType = .Control
-        case 0x2:
-            self.frameControlType = .Data
-        case 0x3:
-            self.frameControlType = .Reserved
-        default:
-            self.frameControlType = .Unknown
+        if self.frameControl?.frameControlType == FrameControl.FrameControlType.Management {
+            self.managementFrame = ManagementFrame(frameControl: self.frameControl!, rawData: frameData)
+        } else if self.frameControl?.frameControlType == FrameControl.FrameControlType.Data {
+            self.dataFrame = DataFrame(frameControl: self.frameControl!, rawData: frameData)
         }
-        
+
     }
 }

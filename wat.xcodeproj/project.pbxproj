@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ABAA307199EA38C00C9B973 /* FrameControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABAA306199EA38C00C9B973 /* FrameControl.swift */; };
+		0ABAA309199EAD2800C9B973 /* DataFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABAA308199EAD2800C9B973 /* DataFrame.swift */; };
+		0ABAA30B199EAD4300C9B973 /* FrameWithAddresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABAA30A199EAD4300C9B973 /* FrameWithAddresses.swift */; };
 		0ACB4B16199E342100AE8F3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B15199E342100AE8F3C /* main.swift */; };
 		0ACB4B27199E495C00AE8F3C /* PacketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B26199E495C00AE8F3C /* PacketManager.swift */; };
 		0ACB4B29199E4BC300AE8F3C /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ACB4B28199E4BC300AE8F3C /* libpcap.dylib */; };
@@ -16,7 +19,6 @@
 		0ACB4B46199E772500AE8F3C /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B44199E772500AE8F3C /* Packet.swift */; };
 		0ACB4B47199E772500AE8F3C /* RadioTapPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B45199E772500AE8F3C /* RadioTapPacket.swift */; };
 		0ACB4B4B199E878700AE8F3C /* RawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B4A199E878700AE8F3C /* RawData.swift */; };
-		0ACB4B4D199E881A00AE8F3C /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B4C199E881A00AE8F3C /* Frame.swift */; };
 		0ACB4B4F199E893F00AE8F3C /* ManagementFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B4E199E893F00AE8F3C /* ManagementFrame.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0ABAA306199EA38C00C9B973 /* FrameControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameControl.swift; sourceTree = "<group>"; };
+		0ABAA308199EAD2800C9B973 /* DataFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFrame.swift; sourceTree = "<group>"; };
+		0ABAA30A199EAD4300C9B973 /* FrameWithAddresses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameWithAddresses.swift; sourceTree = "<group>"; };
 		0ACB4B12199E342100AE8F3C /* wat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wat; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ACB4B15199E342100AE8F3C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0ACB4B26199E495C00AE8F3C /* PacketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketManager.swift; sourceTree = "<group>"; };
@@ -46,7 +51,6 @@
 		0ACB4B44199E772500AE8F3C /* Packet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
 		0ACB4B45199E772500AE8F3C /* RadioTapPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioTapPacket.swift; sourceTree = "<group>"; };
 		0ACB4B4A199E878700AE8F3C /* RawData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawData.swift; sourceTree = "<group>"; };
-		0ACB4B4C199E881A00AE8F3C /* Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
 		0ACB4B4E199E893F00AE8F3C /* ManagementFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementFrame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,8 +121,10 @@
 				0ACB4B44199E772500AE8F3C /* Packet.swift */,
 				0ACB4B45199E772500AE8F3C /* RadioTapPacket.swift */,
 				0ACB4B4A199E878700AE8F3C /* RawData.swift */,
-				0ACB4B4C199E881A00AE8F3C /* Frame.swift */,
 				0ACB4B4E199E893F00AE8F3C /* ManagementFrame.swift */,
+				0ABAA306199EA38C00C9B973 /* FrameControl.swift */,
+				0ABAA308199EAD2800C9B973 /* DataFrame.swift */,
+				0ABAA30A199EAD4300C9B973 /* FrameWithAddresses.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,7 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ACB4B4D199E881A00AE8F3C /* Frame.swift in Sources */,
+				0ABAA30B199EAD4300C9B973 /* FrameWithAddresses.swift in Sources */,
 				0ACB4B41199E76E000AE8F3C /* SGSPacketCallbackManager.m in Sources */,
 				0ACB4B4F199E893F00AE8F3C /* ManagementFrame.swift in Sources */,
 				0ACB4B2B199E52FE00AE8F3C /* ErrorHandler.swift in Sources */,
@@ -188,6 +194,8 @@
 				0ACB4B4B199E878700AE8F3C /* RawData.swift in Sources */,
 				0ACB4B46199E772500AE8F3C /* Packet.swift in Sources */,
 				0ACB4B27199E495C00AE8F3C /* PacketManager.swift in Sources */,
+				0ABAA307199EA38C00C9B973 /* FrameControl.swift in Sources */,
+				0ABAA309199EAD2800C9B973 /* DataFrame.swift in Sources */,
 				0ACB4B16199E342100AE8F3C /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +318,7 @@
 				0ACB4B1B199E342100AE8F3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

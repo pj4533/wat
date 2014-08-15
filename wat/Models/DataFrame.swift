@@ -1,5 +1,5 @@
 //
-//  Frame.swift
+//  DataFrame.swift
 //  wat
 //
 //  Created by PJ Gray on 8/15/14.
@@ -8,6 +8,6 @@
 
 import Cocoa
 
-class Frame: RawData {
+class DataFrame: FrameWithAddresses {
 
 }
