@@ -10,11 +10,13 @@ import Cocoa
 
 class PacketManager: NSObject {
     let errorHandler: ErrorHandler
+    let callbackManager: SGSPacketCallbackManager
     let deviceName: String
     
     init(deviceName: String) {
         self.deviceName = deviceName
         self.errorHandler = ErrorHandler()
+        self.callbackManager = SGSPacketCallbackManager()
         
         super.init()
     }
@@ -34,6 +36,13 @@ class PacketManager: NSObject {
         
         println("Datalink Name: \(String.fromCString(pcap_datalink_val_to_name(pcap_datalink(descr)))!)")
         println("Datalink Description: \(String.fromCString(pcap_datalink_val_to_description(pcap_datalink(descr)))!)")
+        
+        self.callbackManager.registerPacketCallbackWithDescriptor(descr, withBlock: {
+            (pkthdr: UnsafePointer<pcap_pkthdr>, packet: UnsafePointer<u_char>) -> Void in
+            
+            println("Got A Packet")
+            
+        })
     }
 
 }

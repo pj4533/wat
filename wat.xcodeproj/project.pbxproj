@@ -12,6 +12,9 @@
 		0ACB4B27199E495C00AE8F3C /* PacketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B26199E495C00AE8F3C /* PacketManager.swift */; };
 		0ACB4B29199E4BC300AE8F3C /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ACB4B28199E4BC300AE8F3C /* libpcap.dylib */; };
 		0ACB4B2B199E52FE00AE8F3C /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B2A199E52FE00AE8F3C /* ErrorHandler.swift */; };
+		0ACB4B33199E6A6000AE8F3C /* SGSPacketCallbackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B32199E6A6000AE8F3C /* SGSPacketCallbackManager.m */; };
+		0ACB4B37199E709700AE8F3C /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B36199E709700AE8F3C /* Packet.swift */; };
+		0ACB4B39199E70C400AE8F3C /* RadioTapPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B38199E70C400AE8F3C /* RadioTapPacket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +38,10 @@
 		0ACB4B26199E495C00AE8F3C /* PacketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketManager.swift; sourceTree = "<group>"; };
 		0ACB4B28199E4BC300AE8F3C /* libpcap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpcap.dylib; path = usr/lib/libpcap.dylib; sourceTree = SDKROOT; };
 		0ACB4B2A199E52FE00AE8F3C /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		0ACB4B31199E6A6000AE8F3C /* SGSPacketCallbackManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGSPacketCallbackManager.h; sourceTree = "<group>"; };
+		0ACB4B32199E6A6000AE8F3C /* SGSPacketCallbackManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGSPacketCallbackManager.m; sourceTree = "<group>"; };
+		0ACB4B36199E709700AE8F3C /* Packet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
+		0ACB4B38199E70C400AE8F3C /* RadioTapPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioTapPacket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +82,10 @@
 				0ACB4B22199E46A900AE8F3C /* wat-Bridging-Header.h */,
 				0ACB4B26199E495C00AE8F3C /* PacketManager.swift */,
 				0ACB4B2A199E52FE00AE8F3C /* ErrorHandler.swift */,
+				0ACB4B31199E6A6000AE8F3C /* SGSPacketCallbackManager.h */,
+				0ACB4B32199E6A6000AE8F3C /* SGSPacketCallbackManager.m */,
+				0ACB4B36199E709700AE8F3C /* Packet.swift */,
+				0ACB4B38199E70C400AE8F3C /* RadioTapPacket.swift */,
 			);
 			path = wat;
 			sourceTree = "<group>";
@@ -136,7 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ACB4B25199E46A900AE8F3C /* SGSColorPrinter.m in Sources */,
+				0ACB4B33199E6A6000AE8F3C /* SGSPacketCallbackManager.m in Sources */,
 				0ACB4B2B199E52FE00AE8F3C /* ErrorHandler.swift in Sources */,
+				0ACB4B39199E70C400AE8F3C /* RadioTapPacket.swift in Sources */,
+				0ACB4B37199E709700AE8F3C /* Packet.swift in Sources */,
 				0ACB4B27199E495C00AE8F3C /* PacketManager.swift in Sources */,
 				0ACB4B16199E342100AE8F3C /* main.swift in Sources */,
 			);
