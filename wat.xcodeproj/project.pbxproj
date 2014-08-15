@@ -15,6 +15,9 @@
 		0ACB4B42199E76E000AE8F3C /* SGSColorPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B3F199E76E000AE8F3C /* SGSColorPrinter.m */; };
 		0ACB4B46199E772500AE8F3C /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B44199E772500AE8F3C /* Packet.swift */; };
 		0ACB4B47199E772500AE8F3C /* RadioTapPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B45199E772500AE8F3C /* RadioTapPacket.swift */; };
+		0ACB4B4B199E878700AE8F3C /* RawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B4A199E878700AE8F3C /* RawData.swift */; };
+		0ACB4B4D199E881A00AE8F3C /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B4C199E881A00AE8F3C /* Frame.swift */; };
+		0ACB4B4F199E893F00AE8F3C /* ManagementFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB4B4E199E893F00AE8F3C /* ManagementFrame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,6 +45,9 @@
 		0ACB4B40199E76E000AE8F3C /* SGSColorPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGSColorPrinter.h; sourceTree = "<group>"; };
 		0ACB4B44199E772500AE8F3C /* Packet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
 		0ACB4B45199E772500AE8F3C /* RadioTapPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioTapPacket.swift; sourceTree = "<group>"; };
+		0ACB4B4A199E878700AE8F3C /* RawData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawData.swift; sourceTree = "<group>"; };
+		0ACB4B4C199E881A00AE8F3C /* Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
+		0ACB4B4E199E893F00AE8F3C /* ManagementFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementFrame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,9 @@
 			children = (
 				0ACB4B44199E772500AE8F3C /* Packet.swift */,
 				0ACB4B45199E772500AE8F3C /* RadioTapPacket.swift */,
+				0ACB4B4A199E878700AE8F3C /* RawData.swift */,
+				0ACB4B4C199E881A00AE8F3C /* Frame.swift */,
+				0ACB4B4E199E893F00AE8F3C /* ManagementFrame.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,10 +179,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ACB4B4D199E881A00AE8F3C /* Frame.swift in Sources */,
 				0ACB4B41199E76E000AE8F3C /* SGSPacketCallbackManager.m in Sources */,
+				0ACB4B4F199E893F00AE8F3C /* ManagementFrame.swift in Sources */,
 				0ACB4B2B199E52FE00AE8F3C /* ErrorHandler.swift in Sources */,
 				0ACB4B42199E76E000AE8F3C /* SGSColorPrinter.m in Sources */,
 				0ACB4B47199E772500AE8F3C /* RadioTapPacket.swift in Sources */,
+				0ACB4B4B199E878700AE8F3C /* RawData.swift in Sources */,
 				0ACB4B46199E772500AE8F3C /* Packet.swift in Sources */,
 				0ACB4B27199E495C00AE8F3C /* PacketManager.swift in Sources */,
 				0ACB4B16199E342100AE8F3C /* main.swift in Sources */,

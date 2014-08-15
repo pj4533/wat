@@ -18,7 +18,7 @@ void processPacket(u_char *arg, const struct pcap_pkthdr* pkthdr, const u_char *
     NSData* packetData = [NSData dataWithBytes:packet length:pkthdr->len];
     pkthdr_t nonConstPkthdr = (pkthdr_t) pkthdr; // :notsureif:
     
-    // Assuming RadioTap packet header for now
+    // Assuming RadioTap packet header for now -- could check for this in PacketManager by looking at the datalink type
     RadioTapPacket* packetModel = [[RadioTapPacket alloc] initWithPcapHeader:nonConstPkthdr rawData:packetData];
     
     if (gCallback) {
