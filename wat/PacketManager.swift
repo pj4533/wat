@@ -21,26 +21,6 @@ class PacketManager: NSObject {
         super.init()
     }
     
-//    func stringIfMeWithFrame(frame: FrameWithAddresses?, stringSoFar: String) -> String {
-//        String outputString = String(stringSoFar)
-//        
-//        if  frame?.destAddr != nil {
-//            outputString += " DEST: \(frame!.destAddrString!)"
-//            if (packet.managementFrame?.destAddrString! == "e4:98:d6:3:90:e4") {
-//                showOutput = true
-//            }
-//        }
-//        
-//        if  (packet.managementFrame?.sourceAddr != nil) {
-//            outputString += " SOURCE: \(packet.managementFrame!.sourceAddrString!)"
-//            if (packet.managementFrame?.sourceAddrString! == "e4:98:d6:3:90:e4") {
-//                showOutput = true
-//            }
-//        }
-//
-//        return
-//    }
-    
     func capture() {
         var error: UnsafeMutablePointer<CChar>
         error = nil
@@ -62,22 +42,15 @@ class PacketManager: NSObject {
             outputString += " \(packet.frameControl!.frameControlSubType.simpleDescription())"
             outputString += " Size: \(packet.rawData.length)"
 
-            var showOutput = false
             if packet.frameControl?.frameControlType == FrameControl.FrameControlType.Management {
                 if packet.frameControl?.frameControlSubType == FrameControl.FrameControlSubType.Authentication {
 
                     if  packet.managementFrame?.destAddr != nil {
                         outputString += " DEST: \(packet.managementFrame!.destAddrString!)"
-                        if (packet.managementFrame?.destAddrString! == "e4:98:d6:3:90:e4") {
-                            showOutput = true
-                        }
                     }
 
                     if  (packet.managementFrame?.sourceAddr != nil) {
                         outputString += " SOURCE: \(packet.managementFrame!.sourceAddrString!)"
-                        if (packet.managementFrame?.sourceAddrString! == "e4:98:d6:3:90:e4") {
-                            showOutput = true
-                        }
                     }
                     
                 }
@@ -85,22 +58,14 @@ class PacketManager: NSObject {
 
                 if  packet.dataFrame?.destAddr != nil {
                     outputString += " DEST: \(packet.dataFrame!.destAddrString!)"
-                    if (packet.dataFrame?.destAddrString! == "e4:98:d6:3:90:e4") {
-                        showOutput = true
-                    }
                 }
                 
                 if  (packet.dataFrame?.sourceAddr != nil) {
                     outputString += " SOURCE: \(packet.dataFrame!.sourceAddrString!)"
-                    if (packet.dataFrame?.sourceAddrString! == "e4:98:d6:3:90:e4") {
-                        showOutput = true
-                    }
                 }
                 
             }
-            if showOutput {
-                println(outputString)
-            }
+            println(outputString)
         })
     }
 
