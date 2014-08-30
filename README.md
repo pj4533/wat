@@ -2,12 +2,24 @@
 # wat - a simple packet sniffer
 wat is a very simple exploration of using the libpcap library on OSX via Swift through a command line interface.
 
-## Goal
-The main goal is the creation of a tool for debugging the network traffic of iOS apps, without having to use a proxy tool (such as Charles).  Other goals include:
+## Running
+Just load in XCode6+, and build.   Then run with sudo:
+```
+sudo ./wat
+```
 
-* keep things simple: network code is hard enough
-* keep things modern: most network code is OLD
-* learn Swift: its new, I need to learn it
+Initial output should look like this:
+
+```
+Opening device: en0
+Datalink Name: IEEE802_11_RADIO
+Datalink Description: 802.11 plus radiotap header
+```
+
+Hardcoded to en0 for now.  
+
+Also, I am focusing on the output of management and authentication packets (EAPOL), since the first task is getting the 4-way handshake supported for decrypting WPA2 traffic. (More details in the 'gotchas' section [here](http://wiki.wireshark.org/HowToDecrypt802.11).)
+
 
 ## Notes
 * Color CLI output via Swift - not as easy as I'd like.  I had to bridge back to ObjectiveC for this.
@@ -22,8 +34,8 @@ The main goal is the creation of a tool for debugging the network traffic of iOS
 ```
 
 ## Limitations
-* SSL - no proxy means no reading SSL
-* Eventually WPA/WPA2 traffic will be decrypted (given proper password), but I havn't figured out this code yet.
+* SSL - no proxy means no reading SSL, even when WPA/WPA2 is decrypted
+* For proper debugging of traffic, WPA/WPA2 traffic needs to be decrypted (given proper password) -- this code is nontrivial to figure out.  
 * Focusing on IEEE802.11 plus radiotap, for now
 
 ## Help & Links
