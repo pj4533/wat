@@ -1,5 +1,5 @@
 ![](wifi_eye.png)
-# wat - a simple packet sniffer
+# wat - a simple packet sniffer in swift
 wat is a very simple exploration of using the libpcap library on OSX via Swift through a command line interface.
 
 ## Running
