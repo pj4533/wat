@@ -9,22 +9,18 @@
 import Cocoa
 
 class ErrorHandler: NSObject {
-    var colorPrinter: SGSColorPrinter
-    
-    override init() {
-        self.colorPrinter = SGSColorPrinter()
-    }
+    let colorPrinter = ColorPrinter()
     
     func handleError(error: UnsafeMutablePointer<CChar>) {
         if (error != nil ) {
-            self.colorPrinter.printlnRed(String.fromCString(error))
+            self.colorPrinter.print(.Red, String.fromCString(error)!)
             exit(1)
         }
     }
 
     func handleResult(result: Int32, message: String) {
         if (result != 0) {
-            self.colorPrinter.printlnRed(message)
+            self.colorPrinter.print(.Red, message)
             exit(1)
         }
     }
