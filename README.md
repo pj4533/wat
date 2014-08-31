@@ -22,8 +22,7 @@ Also, I am focusing on the output of management and authentication packets (EAPO
 
 
 ## Notes
-* Color CLI output via Swift - not as easy as I'd like.  I had to bridge back to ObjectiveC for this.
-* Function pointers in Swift - getting better with XCode6 beta4, but I had to go back to ObjectiveC for this as well.
+* Function pointers in Swift - getting better with XCode6 beta4, but I had to go back to ObjectiveC for this
 * Found this code on [Stack Overflow](http://stackoverflow.com/questions/24067085/pointers-pointer-arithmetic-and-raw-data-in-swift) - very useful for low level byte manipulation in Swift:
 
 ```
