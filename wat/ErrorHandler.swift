@@ -13,14 +13,14 @@ class ErrorHandler: NSObject {
     
     func handleError(error: UnsafeMutablePointer<CChar>) {
         if (error != nil ) {
-            self.colorPrinter.print(.Red, String.fromCString(error)!)
+            self.colorPrinter.printBold(.Red, String.fromCString(error)!)
             exit(1)
         }
     }
 
     func handleResult(result: Int32, message: String) {
         if (result != 0) {
-            self.colorPrinter.print(.Red, message)
+            self.colorPrinter.printBold(.Red, message)
             exit(1)
         }
     }

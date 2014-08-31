@@ -17,6 +17,7 @@ enum PrintColor {
     case Blue
     case Magenta
     case Cyan
+    case Bold
 }
 
 class ColorPrinter: NSObject {
@@ -28,21 +29,18 @@ class ColorPrinter: NSObject {
         .Yellow: "33",
         .Blue: "34",
         .Magenta: "35",
-        .Cyan: "36"
+        .Cyan: "36",
+        .Bold: "1"
     ]
-    func printEscape(color: PrintColor) {
+
+    func printBold(color: PrintColor, _ str: String) {
+        Swift.print("\u{1B}[\(colorCodes[.Bold]!)m")
+        self.print(color, str)
+    }
+    
+    func print(color: PrintColor, _ str: String) {
+        Swift.print("\u{1B}[\(colorCodes[color]!)m")
+        Swift.print(str)
         Swift.print("\u{1B}[\(colorCodes[color]!)m")
     }
-    func print(color: PrintColor, _ str: String) {
-        printEscape(color)
-        Swift.print(str)
-        printEscape(.Default)
-    }
-    func print(str: String) {
-        print(.Default, str)
-    }
-    func println() {
-        Swift.println()
-    }
-    func end() {}
 }
